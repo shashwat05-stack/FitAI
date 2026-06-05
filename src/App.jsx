@@ -85,10 +85,12 @@ const AuthenticatedApp = () => {
 };
 
 function App() {
+  const basename = import.meta.env.DEV ? "/" : "/FitAI";
+
   return (
     <AuthProvider>
       <QueryClientProvider client={queryClientInstance}>
-        <Router>
+        <Router basename={basename}>
           <AuthenticatedApp />
         </Router>
         <Toaster />
